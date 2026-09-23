@@ -44,7 +44,7 @@ const priorityTone: Record<string, string> = {
 
 export function PriorityBadge({ priority, className }: { priority: string; className?: string }) {
   return (
-    <span className={cn(base, priorityTone[priority] ?? priorityTone.Low, className)}>
+    <span className={cn(base, priorityTone[priority] ?? priorityTone['Low'], className)}>
       {priority} priority
     </span>
   );
