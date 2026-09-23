@@ -14,7 +14,391 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      application_events: {
+        Row: {
+          completed: boolean
+          created_at: string
+          date: string
+          event_type: string
+          id: string
+          notes: string | null
+          program_id: string | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          created_at?: string
+          date: string
+          event_type?: string
+          id?: string
+          notes?: string | null
+          program_id?: string | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          created_at?: string
+          date?: string
+          event_type?: string
+          id?: string
+          notes?: string | null
+          program_id?: string | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "application_events_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      documents: {
+        Row: {
+          created_at: string
+          document_type: string
+          file_url: string | null
+          id: string
+          name: string
+          notes: string | null
+          status: string
+          updated_at: string
+          user_id: string
+          version: string | null
+        }
+        Insert: {
+          created_at?: string
+          document_type?: string
+          file_url?: string | null
+          id?: string
+          name: string
+          notes?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+          version?: string | null
+        }
+        Update: {
+          created_at?: string
+          document_type?: string
+          file_url?: string | null
+          id?: string
+          name?: string
+          notes?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+          version?: string | null
+        }
+        Relationships: []
+      }
+      language_tests: {
+        Row: {
+          certificate_document_id: string | null
+          created_at: string
+          currency: string | null
+          expiry_date: string | null
+          id: string
+          listening: string | null
+          notes: string | null
+          price: number | null
+          provider: string | null
+          reading: string | null
+          score: string | null
+          speaking: string | null
+          test_date: string | null
+          test_type: string
+          updated_at: string
+          user_id: string
+          writing: string | null
+        }
+        Insert: {
+          certificate_document_id?: string | null
+          created_at?: string
+          currency?: string | null
+          expiry_date?: string | null
+          id?: string
+          listening?: string | null
+          notes?: string | null
+          price?: number | null
+          provider?: string | null
+          reading?: string | null
+          score?: string | null
+          speaking?: string | null
+          test_date?: string | null
+          test_type?: string
+          updated_at?: string
+          user_id: string
+          writing?: string | null
+        }
+        Update: {
+          certificate_document_id?: string | null
+          created_at?: string
+          currency?: string | null
+          expiry_date?: string | null
+          id?: string
+          listening?: string | null
+          notes?: string | null
+          price?: number | null
+          provider?: string | null
+          reading?: string | null
+          score?: string | null
+          speaking?: string | null
+          test_date?: string | null
+          test_type?: string
+          updated_at?: string
+          user_id?: string
+          writing?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "language_tests_certificate_document_id_fkey"
+            columns: ["certificate_document_id"]
+            isOneToOne: false
+            referencedRelation: "documents"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      programs: {
+        Row: {
+          application_fee: number | null
+          application_link: string | null
+          city: string | null
+          country: string
+          created_at: string
+          deadline: string | null
+          degree_type: string | null
+          funding_type: string | null
+          id: string
+          major: string
+          notes: string | null
+          priority: string
+          program_link: string | null
+          program_name: string
+          research_topic: string | null
+          scholarship_deadline: string | null
+          scholarship_link: string | null
+          scholarship_name: string | null
+          status: string
+          tuition_fee: number | null
+          university: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          application_fee?: number | null
+          application_link?: string | null
+          city?: string | null
+          country?: string
+          created_at?: string
+          deadline?: string | null
+          degree_type?: string | null
+          funding_type?: string | null
+          id?: string
+          major?: string
+          notes?: string | null
+          priority?: string
+          program_link?: string | null
+          program_name: string
+          research_topic?: string | null
+          scholarship_deadline?: string | null
+          scholarship_link?: string | null
+          scholarship_name?: string | null
+          status?: string
+          tuition_fee?: number | null
+          university: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          application_fee?: number | null
+          application_link?: string | null
+          city?: string | null
+          country?: string
+          created_at?: string
+          deadline?: string | null
+          degree_type?: string | null
+          funding_type?: string | null
+          id?: string
+          major?: string
+          notes?: string | null
+          priority?: string
+          program_link?: string | null
+          program_name?: string
+          research_topic?: string | null
+          scholarship_deadline?: string | null
+          scholarship_link?: string | null
+          scholarship_name?: string | null
+          status?: string
+          tuition_fee?: number | null
+          university?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      recommendation_requests: {
+        Row: {
+          created_at: string
+          deadline: string | null
+          id: string
+          notes: string | null
+          program_id: string
+          received_date: string | null
+          recommender_id: string
+          requested_date: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          deadline?: string | null
+          id?: string
+          notes?: string | null
+          program_id: string
+          received_date?: string | null
+          recommender_id: string
+          requested_date?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          deadline?: string | null
+          id?: string
+          notes?: string | null
+          program_id?: string
+          received_date?: string | null
+          recommender_id?: string
+          requested_date?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recommendation_requests_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recommendation_requests_recommender_id_fkey"
+            columns: ["recommender_id"]
+            isOneToOne: false
+            referencedRelation: "recommenders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      recommenders: {
+        Row: {
+          affiliation: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          notes: string | null
+          position: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          affiliation?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          notes?: string | null
+          position?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          affiliation?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          notes?: string | null
+          position?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      requirements: {
+        Row: {
+          category: string
+          created_at: string
+          deadline: string | null
+          document_id: string | null
+          id: string
+          is_required: boolean
+          minimum_score: string | null
+          name: string
+          notes: string | null
+          program_id: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          deadline?: string | null
+          document_id?: string | null
+          id?: string
+          is_required?: boolean
+          minimum_score?: string | null
+          name: string
+          notes?: string | null
+          program_id: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          deadline?: string | null
+          document_id?: string | null
+          id?: string
+          is_required?: boolean
+          minimum_score?: string | null
+          name?: string
+          notes?: string | null
+          program_id?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "requirements_document_id_fkey"
+            columns: ["document_id"]
+            isOneToOne: false
+            referencedRelation: "documents"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "requirements_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
