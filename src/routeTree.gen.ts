@@ -15,6 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDocumentsRouteImport } from './routes/_authenticated/documents'
 import { Route as AuthenticatedLanguageTestsRouteImport } from './routes/_authenticated/language-tests'
+import { Route as AuthenticatedRecommendationsRouteImport } from './routes/_authenticated/recommendations'
 import { Route as AuthenticatedProgramsIndexRouteImport } from './routes/_authenticated/programs/index'
 import { Route as AuthenticatedProgramsProgramIdRouteImport } from './routes/_authenticated/programs/$programId'
 
@@ -48,6 +49,12 @@ const AuthenticatedLanguageTestsRoute =
     path: '/language-tests',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedRecommendationsRoute =
+  AuthenticatedRecommendationsRouteImport.update({
+    id: '/recommendations',
+    path: '/recommendations',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedProgramsIndexRoute =
   AuthenticatedProgramsIndexRouteImport.update({
     id: '/programs/',
@@ -67,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/documents': typeof AuthenticatedDocumentsRoute
   '/language-tests': typeof AuthenticatedLanguageTestsRoute
+  '/recommendations': typeof AuthenticatedRecommendationsRoute
   '/programs/$programId': typeof AuthenticatedProgramsProgramIdRoute
   '/programs/': typeof AuthenticatedProgramsIndexRoute
 }
@@ -76,6 +84,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/documents': typeof AuthenticatedDocumentsRoute
   '/language-tests': typeof AuthenticatedLanguageTestsRoute
+  '/recommendations': typeof AuthenticatedRecommendationsRoute
   '/programs/$programId': typeof AuthenticatedProgramsProgramIdRoute
   '/programs': typeof AuthenticatedProgramsIndexRoute
 }
@@ -87,6 +96,7 @@ export interface FileRoutesById {
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/documents': typeof AuthenticatedDocumentsRoute
   '/_authenticated/language-tests': typeof AuthenticatedLanguageTestsRoute
+  '/_authenticated/recommendations': typeof AuthenticatedRecommendationsRoute
   '/_authenticated/programs/$programId': typeof AuthenticatedProgramsProgramIdRoute
   '/_authenticated/programs/': typeof AuthenticatedProgramsIndexRoute
 }
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/documents'
     | '/language-tests'
+    | '/recommendations'
     | '/programs/$programId'
     | '/programs/'
   fileRoutesByTo: FileRoutesByTo
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/documents'
     | '/language-tests'
+    | '/recommendations'
     | '/programs/$programId'
     | '/programs'
   id:
@@ -117,6 +129,7 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard'
     | '/_authenticated/documents'
     | '/_authenticated/language-tests'
+    | '/_authenticated/recommendations'
     | '/_authenticated/programs/$programId'
     | '/_authenticated/programs/'
   fileRoutesById: FileRoutesById
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedLanguageTestsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/recommendations': {
+      id: '/_authenticated/recommendations'
+      path: '/recommendations'
+      fullPath: '/recommendations'
+      preLoaderRoute: typeof AuthenticatedRecommendationsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/programs/': {
       id: '/_authenticated/programs/'
       path: '/programs'
@@ -192,6 +212,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedDocumentsRoute: typeof AuthenticatedDocumentsRoute
   AuthenticatedLanguageTestsRoute: typeof AuthenticatedLanguageTestsRoute
+  AuthenticatedRecommendationsRoute: typeof AuthenticatedRecommendationsRoute
   AuthenticatedProgramsProgramIdRoute: typeof AuthenticatedProgramsProgramIdRoute
   AuthenticatedProgramsIndexRoute: typeof AuthenticatedProgramsIndexRoute
 }
@@ -200,6 +221,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedDocumentsRoute: AuthenticatedDocumentsRoute,
   AuthenticatedLanguageTestsRoute: AuthenticatedLanguageTestsRoute,
+  AuthenticatedRecommendationsRoute: AuthenticatedRecommendationsRoute,
   AuthenticatedProgramsProgramIdRoute: AuthenticatedProgramsProgramIdRoute,
   AuthenticatedProgramsIndexRoute: AuthenticatedProgramsIndexRoute,
 }
