@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedDocumentsRouteImport } from './routes/_authenticated/documents'
 import { Route as AuthenticatedProgramsIndexRouteImport } from './routes/_authenticated/programs/index'
 import { Route as AuthenticatedProgramsProgramIdRouteImport } from './routes/_authenticated/programs/$programId'
 
@@ -35,6 +36,11 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedDocumentsRoute = AuthenticatedDocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedProgramsIndexRoute =
   AuthenticatedProgramsIndexRouteImport.update({
     id: '/programs/',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/documents': typeof AuthenticatedDocumentsRoute
   '/programs/$programId': typeof AuthenticatedProgramsProgramIdRoute
   '/programs/': typeof AuthenticatedProgramsIndexRoute
 }
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/documents': typeof AuthenticatedDocumentsRoute
   '/programs/$programId': typeof AuthenticatedProgramsProgramIdRoute
   '/programs': typeof AuthenticatedProgramsIndexRoute
 }
@@ -68,21 +76,34 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/documents': typeof AuthenticatedDocumentsRoute
   '/_authenticated/programs/$programId': typeof AuthenticatedProgramsProgramIdRoute
   '/_authenticated/programs/': typeof AuthenticatedProgramsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/auth' | '/dashboard' | '/programs/$programId' | '/programs/'
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/documents'
+    | '/programs/$programId'
+    | '/programs/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/dashboard' | '/programs/$programId' | '/programs'
+  to:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/documents'
+    | '/programs/$programId'
+    | '/programs'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/auth'
     | '/_authenticated/dashboard'
+    | '/_authenticated/documents'
     | '/_authenticated/programs/$programId'
     | '/_authenticated/programs/'
   fileRoutesById: FileRoutesById
@@ -123,6 +144,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/documents': {
+      id: '/_authenticated/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof AuthenticatedDocumentsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/programs/': {
       id: '/_authenticated/programs/'
       path: '/programs'
@@ -142,12 +170,14 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedDocumentsRoute: typeof AuthenticatedDocumentsRoute
   AuthenticatedProgramsProgramIdRoute: typeof AuthenticatedProgramsProgramIdRoute
   AuthenticatedProgramsIndexRoute: typeof AuthenticatedProgramsIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedDocumentsRoute: AuthenticatedDocumentsRoute,
   AuthenticatedProgramsProgramIdRoute: AuthenticatedProgramsProgramIdRoute,
   AuthenticatedProgramsIndexRoute: AuthenticatedProgramsIndexRoute,
 }
