@@ -64,15 +64,4 @@ The goal is simple: keep programs, requirements, documents, language tests, reco
 - **Tailwind CSS**
 - **Lucide React**
 - **Motion**
-- **Supabase** (optional / prepared for cloud integration)
-
-### Architecture
-
-The current application uses a local-first architecture:
-
-```text
-React UI
-   ↓
-AppContext
-   ↓
-Local Storage
+- **Supabase** 
