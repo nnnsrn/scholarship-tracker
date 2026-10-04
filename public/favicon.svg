@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Rounded Purple Squircle Container matching the app icon -->
+  <rect x="24" y="24" width="464" height="464" rx="108" fill="#35257d" />
+
+  <!-- Outer Cover / Backing -->
+  <!-- Left cover border -->
+  <path
+    d="M 152 160 L 136 160 C 126 160 120 166 120 176 L 120 310 C 120 324 130 334 144 334 L 232 334"
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Right cover border -->
+  <path
+    d="M 360 160 L 376 160 C 386 160 392 166 392 176 L 392 310 C 392 324 382 334 368 334 L 280 334"
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Spine bottom notch -->
+  <path
+    d="M 232 334 C 236 348 276 348 280 334"
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Central Spine divider -->
+  <line
+    x1="256"
+    y1="165"
+    x2="256"
+    y2="318"
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+  />
+
+  <!-- Left page leaf -->
+  <path
+    d="M 256 165 C 218 142 172 142 160 148 C 154 151 150 157 150 165 L 150 298 C 150 306 156 312 164 314 C 176 317 218 318 256 318"
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Right page bottom curve up to right edge -->
+  <path
+    d="M 256 318 C 294 318 336 317 348 314 C 356 312 362 306 362 298 L 362 152"
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Right page top edge meeting checkmark -->
+  <path
+    d="M 256 165 C 292 142 326 148 344 198"
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Integrated Checkmark on right page -->
+  <path
+    d="M 276 238 L 302 266 C 304 268 308 268 310 266 L 362 152"
+    stroke="#ffffff"
+    stroke-width="18"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Graduation Cap underneath -->
+  <!-- Mortarboard Diamond Top -->
+  <path
+    d="M 256 372 L 294 385 L 256 398 L 218 385 Z"
+    stroke="#ffffff"
+    stroke-width="14"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Skullcap underneath mortarboard -->
+  <path
+    d="M 230 392 C 230 412 282 412 282 392"
+    stroke="#ffffff"
+    stroke-width="14"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Tassel on the right side of cap -->
+  <path
+    d="M 294 385 L 302 393 L 302 410"
+    stroke="#ffffff"
+    stroke-width="12"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
